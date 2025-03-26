@@ -64,6 +64,7 @@
 #include <inttypes.h>
 
 #include "cy_eth_phy_driver.h"
+#include "cyabs_rtos.h"
 /*******************************************************************************
 * Macros
 ********************************************************************************/
@@ -107,6 +108,7 @@ void print_heap_usage(char* msg);
 /* Establish ethernet connection to the network. */
 static cy_rslt_t connect_to_ethernet(void);
 
+static
 /*******************************************************************************
 * Global Variables
 ********************************************************************************/
@@ -403,4 +405,21 @@ cy_rslt_t udp_client_recv_handler(cy_socket_t socket_handle, void *arg)
     return result;
 }
 
+void test_task() {
+	//TickType_t xLastWakeTime;
+	    //const TickType_t xFrequency = 10;
+
+	    // Initialise the xLastWakeTime variable with the current time.
+	    //xLastWakeTime = xTaskGetTickCount();
+
+	    for( ;; )
+	    {
+	    	printf("test task run\n");
+	        // Wait for the next cycle.
+	    	cy_rtos_delay_milliseconds(1000);
+
+	        // Perform action here.
+	    }
+
+}
 /* [] END OF FILE */

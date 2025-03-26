@@ -67,6 +67,7 @@
 
 /* UDP server task handle. */
 TaskHandle_t client_task_handle;
+TaskHandle_t testHandle;
 
 /*******************************************************************************
 * Function Name: main
@@ -107,10 +108,14 @@ int main(void)
     printf("============================================================\n");
     printf("                 CE235599 - Ethernet:UDP Client             \n");
     printf("============================================================\n\n");
-    
+
     /* Create the tasks. */
     xTaskCreate(udp_client_task, "Network task", UDP_CLIENT_TASK_STACK_SIZE, NULL,
                 UDP_CLIENT_TASK_PRIORITY, &client_task_handle);
+
+    xTaskCreate(test_task, "test task", 1024, NULL,
+                    2, &testHandle);
+
     /* Start the FreeRTOS scheduler. */
     vTaskStartScheduler();
 

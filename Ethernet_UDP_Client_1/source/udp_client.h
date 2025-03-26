@@ -60,6 +60,8 @@
 ********************************************************************************/
 void udp_client_task(void *arg);
 
+void test_task();
+
 #endif /* UDP_CLIENT_H_ */
 
 /* [] END OF FILE */
