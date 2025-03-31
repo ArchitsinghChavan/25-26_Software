@@ -5,4 +5,10 @@ Split current code into 3 tasks
 -Telemetry Task
 	Has the second highest priority, send telemetry then suspends itself for a second
 -Main Loop
-	Handles the rest of the stuff
+	Handles the rest of the stuff. When an image request is received, suspends the telemetry task
+
+
+ Helper Functions
+ -getTelemetry
+ 	Grabs telemetry data from relevant GPIO pins
+  
